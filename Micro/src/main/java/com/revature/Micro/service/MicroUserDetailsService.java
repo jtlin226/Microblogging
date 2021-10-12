@@ -1,6 +1,6 @@
 package com.revature.Micro.service;
 
-import com.revature.Micro.Entity.User;
+import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
  * Service layer for RevUserDetails
  */
 @Service
-public class RevUserDetailsService implements UserDetailsService {
-    private static final Logger log = LoggerFactory.getLogger(RevUserDetailsService.class);
+public class MicroUserDetailsService implements UserDetailsService {
+    private static final Logger log = LoggerFactory.getLogger(MicroUserDetailsService.class);
     /**
      * Repository layer for RevUser object
      */
@@ -30,7 +30,7 @@ public class RevUserDetailsService implements UserDetailsService {
      * @param userRepository UserRepository object
      */
     @Autowired
-    public RevUserDetailsService(UserRepository userRepository) {
+    public MicroUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -43,9 +43,9 @@ public class RevUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         log.info("Load user information");
-        User user = userRepository.findByUsername(s).orElseThrow(RuntimeException::new);
-        String username = user.getUsername();
-        String password = user.getPassword();
+        MicroUser microUser = userRepository.findByUsername(s).orElseThrow(RuntimeException::new);
+        String username = microUser.getUsername();
+        String password = microUser.getPassword();
         return new User(username, password, new ArrayList<>()); // ArrayList because we aren't dealing with Authorities
     }
 
