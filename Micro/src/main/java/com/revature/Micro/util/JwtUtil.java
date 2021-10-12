@@ -76,8 +76,7 @@ public class JwtUtil {
 
     public static MicroUser extractUser(UserService userService){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        return userService.getUserByUsername(authentication.getName());
-        return new MicroUser();
+        return userService.getUserByUsername(authentication.getName());
     }
 
     public static String extractUsername(){

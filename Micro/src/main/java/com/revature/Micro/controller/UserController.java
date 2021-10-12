@@ -33,7 +33,6 @@ public class UserController {
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authReq){
         log.info("User attempting to login.");
-//        return userService.authenticate(authReq);
-        return ResponseEntity.ok().build();
+        return userService.authenticate(authReq);
     }
 }
