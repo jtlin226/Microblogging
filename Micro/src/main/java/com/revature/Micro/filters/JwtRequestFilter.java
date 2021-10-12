@@ -1,6 +1,6 @@
 package com.revature.Micro.filters;
 
-import com.revature.Micro.service.RevUserDetailsService;
+import com.revature.Micro.service.MicroUserDetailsService;
 import com.revature.Micro.util.JwtUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ https://github.com/koushikkothagal/spring-security-jwt
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
-    private RevUserDetailsService revUserDetailsService;
+    private MicroUserDetailsService microUserDetailsService;
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -48,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.revUserDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = this.microUserDetailsService.loadUserByUsername(username);
             if (jwtUtil.validateToken(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
