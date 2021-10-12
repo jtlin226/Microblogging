@@ -1,6 +1,6 @@
 package com.revature.Micro.util;
 
-import com.revature.Micro.Entity.User;
+import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -74,9 +74,10 @@ public class JwtUtil {
         return "secret";
     }
 
-    public static RevUser extractUser(RevUserService revUserService){
+    public static MicroUser extractUser(UserService userService){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return revUserService.getRevUserByUsername(authentication.getName());
+//        return userService.getUserByUsername(authentication.getName());
+        return new MicroUser();
     }
 
     public static String extractUsername(){

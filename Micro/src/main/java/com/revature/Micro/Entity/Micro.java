@@ -26,11 +26,11 @@ public class Micro {
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
-//    /**
-//     * The user that created this micro, foreign key referencing the User object
-//     */
-//    @ManyToOne
-//    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
-//    private User user;
+    /**
+     * The user that created this micro, foreign key referencing the User object
+     */
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private MicroUser user;
 
 }

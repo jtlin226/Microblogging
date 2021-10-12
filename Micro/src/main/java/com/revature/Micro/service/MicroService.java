@@ -34,7 +34,7 @@ public class MicroService {
      * @param id Micro id
      * @return a Micro object or a RuntimeException
      */
-    public Micro getMicroById (Integer id){
+    public Micro getMicroById (int id){
         return microRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 

@@ -29,11 +29,16 @@ public class MicroController {
     public Micro getMicroById(@PathVariable int id) {
         return microService.getMicroById(id);
     }
-
-    @GetMapping("/{userId}")
-    public List<Micro> getMicrosByUser(@PathVariable String userId) {
-        return null;
+    @GetMapping("/api")
+    public @ResponseBody
+    List<Micro> getAllMicros(){
+        return microService.getAllMicros();
     }
+
+//    @GetMapping("/{userId}")
+//    public List<Micro> getMicrosByUser(@PathVariable String userId) {
+//        return null;
+//    }
 
     @PostMapping("/post")
     public ResponseEntity<String> createMicro(@RequestBody Micro micro) {
