@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.service.UserService;
+import com.revature.Micro.util.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class UserController {
         return userService.authenticate(authReq);
     }
 
+    /**
+     *
+     * @param name The name of the person that is being searched. Format: firstName  or   firstName_lastName
+     * @return
+     */
     @GetMapping("/search/{name}")
     public ResponseEntity<String> searchPeople(@PathVariable String name){
         try{
@@ -62,6 +68,12 @@ public class UserController {
             return ResponseEntity.internalServerError().build();
         }
     }
+//
+//    @GetMapping("/following")
+//    public ResponseEntity<String> getFollowing(){
+//        MicroUser user = JwtUtil.extractUser(userService);
+//
+//    }
 
     @PutMapping
     public ResponseEntity<String> updateUser(@RequestBody MicroUser microUser){
