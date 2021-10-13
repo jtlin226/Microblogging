@@ -1,6 +1,5 @@
 package com.revature.Micro.service;
 
-import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.dto.AuthenticationResponse;
@@ -60,6 +59,10 @@ public class UserService {
         }
     }
 
+    public MicroUser getSpecificUser(String username){
+        return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
+    }
+
     public MicroUser getUserByUsername(String username) {
         try {
             return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
@@ -87,6 +90,7 @@ public class UserService {
     }
 
     public MicroUser updateUser(MicroUser microUser){
+        microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
     }
 
