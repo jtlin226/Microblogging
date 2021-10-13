@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.MicroDTO;
+import com.revature.Micro.dto.MicroUserDTO;
 import com.revature.Micro.service.MicroService;
 import com.revature.Micro.service.UserService;
 import com.revature.Micro.util.JwtUtil;
@@ -34,15 +35,12 @@ public class MicroController {
     public Micro getMicroById(@PathVariable int id) {
         return microService.getMicroById(id);
     }
-    @GetMapping("/api")
-    public @ResponseBody
-    List<Micro> getAllMicros(){
-        return microService.getAllMicros();
-    }
 
-    @GetMapping("/{userId}")
-    public List<Micro> getMicrosByUser(@PathVariable String userId) {
-        return null;
+    @GetMapping()
+    public @ResponseBody
+    List<Micro> getAllMicrosByUserAndFollowing() {
+        MicroUser user = JwtUtil.extractUser(userService);
+        return microService.getAllMicros(user);
     }
 
     @PostMapping
