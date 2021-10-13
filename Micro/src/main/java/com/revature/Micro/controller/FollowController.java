@@ -1,14 +1,17 @@
 package com.revature.Micro.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.Micro.Entity.Follow;
 import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
+import com.revature.Micro.dto.FollowDTO;
 import com.revature.Micro.dto.MicroDTO;
+import com.revature.Micro.dto.MicroUserDTO;
+import com.revature.Micro.service.FollowService;
 import com.revature.Micro.service.MicroService;
 import com.revature.Micro.service.UserService;
 import com.revature.Micro.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,48 +19,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/micro")
-public class MicroController {
+@RequestMapping("/follow")
+public class FollowController {
 
     @Autowired
-    private final MicroService microService;
+    private final FollowService followService;
 
     @Autowired
     private final UserService userService;
 
-    public MicroController(MicroService microService, UserService userService) {
-        this.microService = microService;
+    public FollowController(FollowService followService, UserService userService) {
+        this.followService = followService;
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public Micro getMicroById(@PathVariable int id) {
-        return microService.getMicroById(id);
-    }
-
-    @GetMapping("/api")
+    @GetMapping
     public @ResponseBody
-    List<Micro> getAllMicros(){
-        return microService.getAllMicros();
-    }
-
-    @GetMapping("/{userId}")
-    public List<Micro> getMicrosByUser(@PathVariable String userId) {
-        return null;
+    List<Follow> getAll() {
+        return followService.getAll();
     }
 
     @PostMapping
-    public ResponseEntity<String> createMicro(@RequestBody MicroDTO microDTO) {
-        MicroUser microUser = JwtUtil.extractUser(userService);
+    public ResponseEntity<String> follow(@RequestBody FollowDTO followDTO) {
+        MicroUser followBy = JwtUtil.extractUser(userService);
+        MicroUser following = new MicroUser();
         try {
             return ResponseEntity.ok().body(
                     new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
-                            microService.saveMicro(
-                                    microDTO.convertToEntity(microUser))));
+                            followService.saveFollow(followDTO.convertToEntity(followBy, following))
+                    )
+            );
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
-
     }
-
 }

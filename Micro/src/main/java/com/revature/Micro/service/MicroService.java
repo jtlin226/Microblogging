@@ -56,12 +56,4 @@ public class MicroService {
         return microRepository.findAll();
     }
 
-    /**
-     * Finds a specified Micro object in the database by its microId and
-     * deletes it if it exists.
-     * @param microId id of Micro
-     */
-    public void deleteMicro (Integer microId){
-        microRepository.findById(microId).ifPresent(microRepository::delete);
-    }
 }

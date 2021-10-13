@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,19 +36,19 @@ public class MicroUser {
 
     @Column(name = "last_name", nullable=false)
     private String lastName;
-//
-//    @ManyToMany(mappedBy = "following")
-//    @JsonIgnoreProperties("follower")
-//    private List<MicroUser> following;
-//
-//    @ManyToMany
-//    @JoinTable(
-//            name="followedBy",
-//            joinColumns=@JoinColumn(name = "follower_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name="following_id", referencedColumnName = "id")
-//    )
-//    @JsonIgnoreProperties("following")
-//    private List<MicroUser> follower;
+
+    @ManyToMany(mappedBy = "following")
+    @JsonIgnoreProperties("follower")
+    private List<MicroUser> following;
+
+    @ManyToMany
+    @JoinTable(
+            name="followedBy",
+            joinColumns=@JoinColumn(name = "follower_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="following_id", referencedColumnName = "id")
+    )
+    @JsonIgnoreProperties("following")
+    private List<MicroUser> follower;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnoreProperties("user")
