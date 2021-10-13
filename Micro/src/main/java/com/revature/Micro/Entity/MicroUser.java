@@ -35,6 +35,12 @@ public class MicroUser {
 
     @Column(name = "last_name", nullable=false)
     private String lastName;
+
+    @Column(name = "image")
+    private String imageURL;
+
+    @Column(name = "about")
+    private String about;
 //
 //    @ManyToMany(mappedBy = "following")
 //    @JsonIgnoreProperties("follower")
