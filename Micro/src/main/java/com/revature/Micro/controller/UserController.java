@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -40,6 +39,20 @@ public class UserController {
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authReq){
         log.info("User attempting to login.");
         return userService.authenticate(authReq);
+    }
+
+    @GetMapping
+    public ResponseEntity<String> getCurrentUser(){
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            JwtUtil.extractUser(userService)
+                    )
+            );
+        } catch (Exception e) {
+            log.error("Failed to write");
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     /**
