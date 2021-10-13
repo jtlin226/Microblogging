@@ -1,5 +1,6 @@
 package com.revature.Micro.service;
 
+import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.dto.AuthenticationResponse;
@@ -87,5 +88,14 @@ public class UserService {
 
     public MicroUser updateUser(MicroUser microUser){
         return userRepository.save(microUser);
+    }
+
+    public MicroUser followUser (MicroUser user, int id) {
+        user.getFollowing().add(userRepository.findById(id).orElseThrow(RuntimeException::new));
+        return userRepository.save(user);
+    }
+    public MicroUser unfollowUser (MicroUser user, int id) {
+        user.getFollowing().remove(userRepository.getById(id));
+        return userRepository.save(user);
     }
 }

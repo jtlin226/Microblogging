@@ -2,10 +2,12 @@ package com.revature.Micro.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.service.UserService;
 import com.revature.Micro.util.JwtUtil;
+import io.swagger.v3.core.util.Json;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,6 +146,36 @@ public class UserController {
             );
         } catch (Exception e){
             log.error("Failed to update user.", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PutMapping("/follow/{follow_id}")
+    public ResponseEntity<String> followUser(@PathVariable int follow_id) {
+        MicroUser user = JwtUtil.extractUser(userService);
+
+        try {
+            log.info("Attempting to follow...");
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.followUser(user, follow_id)));
+        } catch (JsonProcessingException e) {
+            log.error("Fail to write...", e);
+            return ResponseEntity.internalServerError().build();
+        } catch (Exception e) {
+            log.error("Fail to follow...", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+    @PutMapping("/unfollow/{follow_id}")
+    public ResponseEntity<String> unfollowUser(@PathVariable int follow_id) {
+        MicroUser user = JwtUtil.extractUser(userService);
+
+        try {
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.unfollowUser(user, follow_id)));
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
     }
