@@ -35,15 +35,10 @@ public class MicroController {
         return microService.getMicroById(id);
     }
 
-    @GetMapping("/api")
+    @GetMapping()
     public @ResponseBody
-    List<Micro> getAllMicros(){
+    List<Micro> getAllMicrosByUserAndFollowing(@PathVariable String userId) {
         return microService.getAllMicros();
-    }
-
-    @GetMapping("/{userId}")
-    public List<Micro> getMicrosByUser(@PathVariable String userId) {
-        return null;
     }
 
     @PostMapping

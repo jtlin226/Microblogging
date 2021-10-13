@@ -37,9 +37,13 @@ public class MicroUser {
     @Column(name = "last_name", nullable=false)
     private String lastName;
 
-    @ManyToMany(mappedBy = "following")
-    @JsonIgnoreProperties("follower")
-    private List<MicroUser> following;
+//    @ManyToMany(mappedBy = "following")
+//    @JsonIgnoreProperties("follower")
+//    @Column(name = "image")
+//    private String imageURL;
+
+    @Column(name = "about")
+    private String about;
 
     @ManyToMany
     @JoinTable(
