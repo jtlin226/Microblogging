@@ -78,8 +78,11 @@ public class UserService {
 
     }
 
+    public List<MicroUser> getAllFollowers(MicroUser microUser) {
+        return microUser.getFollower();
+    }
     public List<MicroUser> searchUsersByUsername(String name){
-        return userRepository.findByUserNameContaining(name).orElseThrow(RuntimeException::new);
+        return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
 
     public MicroUser updateUser(MicroUser microUser){
