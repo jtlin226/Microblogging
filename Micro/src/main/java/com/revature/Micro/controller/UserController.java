@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.service.UserService;
+import com.revature.Micro.util.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -61,6 +63,21 @@ public class UserController {
             log.warn("Failed to search users", e);
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/follower")
+    public ResponseEntity<String> getMyFollowers(){
+        MicroUser microUser = JwtUtil.extractUser(userService);
+
+        try {
+            return ResponseEntity.ok(new ObjectMapper().
+                    writerWithDefaultPrettyPrinter().
+                    writeValueAsString(userService.getAllFollowers(microUser)));
+        }catch (Exception e){
+            log.error("Failed to update user.", e);
+            return ResponseEntity.internalServerError().build();
+        }
+
     }
 
     @PutMapping
