@@ -59,6 +59,10 @@ public class UserService {
         }
     }
 
+    public MicroUser getSpecificUser(String username){
+        return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
+    }
+
     public MicroUser getUserByUsername(String username) {
         try {
             return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
@@ -86,6 +90,7 @@ public class UserService {
     }
 
     public MicroUser updateUser(MicroUser microUser){
+        microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
     }
 }

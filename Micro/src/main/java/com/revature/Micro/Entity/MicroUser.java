@@ -46,8 +46,8 @@ public class MicroUser {
     @ManyToMany
     @JoinTable(
             name="followedBy",
-            joinColumns=@JoinColumn(name = "follower_id"),
-            inverseJoinColumns = @JoinColumn(name="following_id")
+            joinColumns=@JoinColumn(name = "following_id"),
+            inverseJoinColumns = @JoinColumn(name="follower_id")
     )
     private List<MicroUser> following;
 
