@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -65,6 +66,20 @@ public class UserController {
 
         } catch (Exception e){
             log.warn("Failed to search users", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/follower")
+    public ResponseEntity<String> getMyFollowers() {
+        MicroUser microUser = JwtUtil.extractUser(userService);
+
+        try {
+            return ResponseEntity.ok(new ObjectMapper().
+                    writerWithDefaultPrettyPrinter().
+                    writeValueAsString(userService.getAllFollowers(microUser)));
+        } catch (Exception e) {
+            log.error("Failed to update user.", e);
             return ResponseEntity.internalServerError().build();
         }
     }
