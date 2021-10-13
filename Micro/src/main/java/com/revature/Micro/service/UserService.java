@@ -68,7 +68,7 @@ public class UserService {
         }
     }
 
-    public List<MicroUser> searchUsers(String name){
+    public List<MicroUser> searchUsersByName(String name){
         String[] names = name.split("_");
         if(names.length == 2){
             return userRepository.findByFirstNameContainingAndLastNameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
@@ -76,6 +76,10 @@ public class UserService {
             return userRepository.findByFirstNameContaining(name).orElseThrow(RuntimeException::new);
         }
 
+    }
+
+    public List<MicroUser> searchUsersByUsername(String name){
+        return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
 
     public MicroUser updateUser(MicroUser microUser){

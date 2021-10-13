@@ -47,11 +47,11 @@ public class UserController {
      * @return
      */
     @GetMapping("/search/{name}")
-    public ResponseEntity<String> searchPeople(@PathVariable String name){
+    public ResponseEntity<String> searchPeopleByName(@PathVariable String name){
         try{
             return ResponseEntity.ok().body(
                     new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
-                            userService.searchUsers(name)
+                            userService.searchUsersByName(name)
                     )
             );
         } catch(RuntimeException e){
@@ -68,12 +68,43 @@ public class UserController {
             return ResponseEntity.internalServerError().build();
         }
     }
-//
-//    @GetMapping("/following")
-//    public ResponseEntity<String> getFollowing(){
-//        MicroUser user = JwtUtil.extractUser(userService);
-//
-//    }
+
+    @GetMapping("/{username}")
+    public ResponseEntity<String> searchPeopleByUsername(@PathVariable String username){
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.searchUsersByUsername(username)
+                    )
+            );
+        } catch(RuntimeException e){
+            log.warn("Failed to find users", e);
+            try{
+                return ResponseEntity.ok(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(new ArrayList<>()));
+            } catch(JsonProcessingException ex){
+                log.error("Failed to write empty arraylist",e);
+                return ResponseEntity.internalServerError().build();
+            }
+
+        } catch (Exception e){
+            log.warn("Failed to search users", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/following")
+    public ResponseEntity<String> getFollowing(){
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            JwtUtil.extractUser(userService).getFollowing()
+                    )
+            );
+        } catch (Exception e){
+            log.error("Failed to write followers.", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 
     @PutMapping
     public ResponseEntity<String> updateUser(@RequestBody MicroUser microUser){
