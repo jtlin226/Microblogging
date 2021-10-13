@@ -13,6 +13,6 @@ public interface UserRepository extends JpaRepository<MicroUser, Integer> {
 
     Optional<List<MicroUser>> findByFirstNameContainingAndLastNameContaining(String firstName, String lastName);
     Optional<List<MicroUser>> findByFirstNameContaining(String firstName);
-
     Optional<List<MicroUser>> findByUsernameContaining(String username);
+
 }
