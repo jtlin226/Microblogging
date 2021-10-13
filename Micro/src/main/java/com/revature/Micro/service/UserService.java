@@ -68,14 +68,18 @@ public class UserService {
         }
     }
 
-    public List<MicroUser> searchUsers(String name){
+    public List<MicroUser> searchUsersByName(String name){
         String[] names = name.split("_");
         if(names.length == 2){
-            return userRepository.findByFirstnameContainingAndLastnameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
+            return userRepository.findByFirstNameContainingAndLastNameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
         } else {
-            return userRepository.findByFirstnameContaining(name).orElseThrow(RuntimeException::new);
+            return userRepository.findByFirstNameContaining(name).orElseThrow(RuntimeException::new);
         }
 
+    }
+
+    public List<MicroUser> searchUsersByUsername(String name){
+        return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
 
     public MicroUser updateUser(MicroUser microUser){

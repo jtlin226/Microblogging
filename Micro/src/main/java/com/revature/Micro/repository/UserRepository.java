@@ -11,6 +11,8 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<MicroUser, Integer> {
     Optional<MicroUser> findByUsername(String s);
 
-    Optional<List<MicroUser>> findByFirstnameContainingAndLastnameContaining(String firstName, String lastName);
-    Optional<List<MicroUser>> findByFirstnameContaining(String firstName);
+    Optional<List<MicroUser>> findByFirstNameContainingAndLastNameContaining(String firstName, String lastName);
+    Optional<List<MicroUser>> findByFirstNameContaining(String firstName);
+
+    Optional<List<MicroUser>> findByUsernameContaining(String username);
 }
