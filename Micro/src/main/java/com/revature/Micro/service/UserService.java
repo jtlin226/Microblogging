@@ -93,4 +93,13 @@ public class UserService {
         microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
     }
+
+    public MicroUser followUser (MicroUser user, int id) {
+        user.getFollowing().add(userRepository.findById(id).orElseThrow(RuntimeException::new));
+        return userRepository.save(user);
+    }
+    public MicroUser unfollowUser (MicroUser user, int id) {
+        user.getFollowing().remove(userRepository.getById(id));
+        return userRepository.save(user);
+    }
 }

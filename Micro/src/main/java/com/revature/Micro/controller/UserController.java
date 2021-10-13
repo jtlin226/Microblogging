@@ -161,4 +161,34 @@ public class UserController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @PutMapping("/follow/{follow_id}")
+    public ResponseEntity<String> followUser(@PathVariable int follow_id) {
+        MicroUser user = JwtUtil.extractUser(userService);
+
+        try {
+            log.info("Attempting to follow...");
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.followUser(user, follow_id)));
+        } catch (JsonProcessingException e) {
+            log.error("Fail to write...", e);
+            return ResponseEntity.internalServerError().build();
+        } catch (Exception e) {
+            log.error("Fail to follow...", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+    @PutMapping("/unfollow/{follow_id}")
+    public ResponseEntity<String> unfollowUser(@PathVariable int follow_id) {
+        MicroUser user = JwtUtil.extractUser(userService);
+
+        try {
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.unfollowUser(user, follow_id)));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
