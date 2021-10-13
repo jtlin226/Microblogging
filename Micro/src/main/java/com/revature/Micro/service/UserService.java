@@ -16,6 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
@@ -64,5 +66,19 @@ public class UserService {
             log.error("Failed to retrieve user based off username",e);
             return null;
         }
+    }
+
+    public List<MicroUser> searchUsers(String name){
+        String[] names = name.split("_");
+        if(names.length == 2){
+            return userRepository.findByFirstnameContainingAndLastnameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
+        } else {
+            return userRepository.findByFirstnameContaining(name).orElseThrow(RuntimeException::new);
+        }
+
+    }
+
+    public MicroUser updateUser(MicroUser microUser){
+        return userRepository.save(microUser);
     }
 }
