@@ -2,12 +2,10 @@ package com.revature.Micro.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.Micro.Entity.Micro;
 import com.revature.Micro.Entity.MicroUser;
 import com.revature.Micro.dto.AuthenticationRequest;
 import com.revature.Micro.service.UserService;
 import com.revature.Micro.util.JwtUtil;
-import io.swagger.v3.core.util.Json;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -42,6 +39,34 @@ public class UserController {
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authReq){
         log.info("User attempting to login.");
         return userService.authenticate(authReq);
+    }
+
+    @GetMapping
+    public ResponseEntity<String> getCurrentUser(){
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            JwtUtil.extractUser(userService)
+                    )
+            );
+        } catch (Exception e) {
+            log.error("Failed to write");
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/recover/{username}")
+    public ResponseEntity<String> getSpecificUser(@PathVariable String username){
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.getSpecificUser(username)
+                    )
+            );
+        } catch (Exception e){
+            log.error("Failed to get specific user", e);
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     /**
