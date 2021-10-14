@@ -31,3 +31,4 @@
 2021-10-14 09:59:19.758  INFO 14292 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
 2021-10-14 10:01:10.440  INFO 14292 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
 2021-10-14 10:01:10.456  INFO 14292 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : Attempting to follow...
+2021-10-14 10:01:13.892  INFO 14292 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
