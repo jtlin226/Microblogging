@@ -15,8 +15,9 @@ public interface MicroRepository extends JpaRepository<Micro, Integer> {
 
     List<Micro> findByUser(MicroUser user);
 
-    @Query("SELECT m FROM Micro m WHERE m.user = :user OR m.user IN (SELECT following_id FROM followed_by WHERE followed_by.follower_id = :user)")
-    List<Micro> getAllMicrosFromUserAndFollowingByUser (@Param("user") MicroUser user);
+    //TODO: Write correct query
+    @Query(value = "SELECT * FROM MICROS WHERE USER_ID = ?1 OR USER_ID IN (SELECT FOLLOWING_ID FROM FOLLOWED_BY WHERE FOLLOWED_BY.FOLLOWER_ID = ?1)", nativeQuery = true)
+    List<Micro> getAllMicrosFromUserAndFollowingByUser (int id);
     /**
      SELECT * FROM MICROS
      WHERE USER_ID = 2 OR USER_ID IN(

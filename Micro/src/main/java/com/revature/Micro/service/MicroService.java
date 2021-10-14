@@ -45,7 +45,7 @@ public class MicroService {
      * @return a List of Micro objects
      */
     public List<Micro> getAllMicros(MicroUser user){
-        return microRepository.getAllMicrosFromUserAndFollowingByUser(user);
+        return microRepository.getAllMicrosFromUserAndFollowingByUser(user.getId());
     }
 
 }
