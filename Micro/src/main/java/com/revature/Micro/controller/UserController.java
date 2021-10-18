@@ -56,17 +56,8 @@ public class UserController {
     }
 
     @GetMapping("/recover/{username}")
-    public ResponseEntity<String> getSpecificUser(@PathVariable String username){
-        try{
-            return ResponseEntity.ok().body(
-                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
-                            userService.getSpecificUser(username)
-                    )
-            );
-        } catch (Exception e){
-            log.error("Failed to get specific user", e);
-            return ResponseEntity.internalServerError().build();
-        }
+    public ResponseEntity<?> getSpecificUser(@PathVariable String username){
+        return userService.getSpecificUser(username);
     }
 
     /**
