@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         // the endpoints needed before a user is authenticated
                         "/user/authenticate",
                         "/user/register",
+                        "/user/recover/**",
 
                         // the endpoint to view the h2 db console
                         "/h2-console/**",
