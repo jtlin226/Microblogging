@@ -54,9 +54,27 @@ public class JwtUtil {
         return createToken(claims, userDetails.getUsername());
     }
 
+    public String generateTempToken(UserDetails userDetails)
+    {
+        Map<String, Object> claims = new HashMap<>();
+        return createTempToken(claims, userDetails.getUsername());
+    }
+
+    private String createTempToken(Map<String, Object> claims, String subject)
+    {
+        Date now = new Date(System.currentTimeMillis());
+        Date expire = new Date(System.currentTimeMillis() + 1000*60*2); // 2 minutes from issue time
+        return Jwts.builder()
+                .setClaims(claims) // is empty now - can add stuff to it
+                .setSubject(subject) // the username
+                .setIssuedAt(now)
+                .setExpiration(expire)
+                .signWith(SignatureAlgorithm.HS256, getHashSignature()).compact();
+    }
+
     private String createToken(Map<String, Object> claims, String subject) {
         Date now = new Date(System.currentTimeMillis());
-        Date expire = new Date(System.currentTimeMillis() + 3600000); // one hour from issue time
+        Date expire = new Date(System.currentTimeMillis() + 1000*60*60*3); // 3 hour from issue time
         return Jwts.builder()
                 .setClaims(claims) // is empty now - can add stuff to it
                 .setSubject(subject) // the username
