@@ -99,7 +99,7 @@ public class UserService {
         return userRepository.save(user);
     }
     public MicroUser unfollowUser (MicroUser user, int id) {
-        user.getFollowing().remove(userRepository.getById(id));
+        user.getFollowing().remove(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
 }
