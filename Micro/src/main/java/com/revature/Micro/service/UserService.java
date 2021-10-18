@@ -85,6 +85,7 @@ public class UserService {
     public List<MicroUser> getAllFollowers(MicroUser microUser) {
         return microUser.getFollower();
     }
+
     public List<MicroUser> searchUsersByUsername(String name){
         return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
@@ -94,12 +95,16 @@ public class UserService {
         return userRepository.save(microUser);
     }
 
+    public MicroUser updateProfile(MicroUser user){
+        return userRepository.save(user);
+    }
+
     public MicroUser followUser (MicroUser user, int id) {
         user.getFollowing().add(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
     public MicroUser unfollowUser (MicroUser user, int id) {
-        user.getFollowing().remove(userRepository.getById(id));
+        user.getFollowing().remove(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
 }

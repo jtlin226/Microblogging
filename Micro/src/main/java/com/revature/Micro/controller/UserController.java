@@ -148,12 +148,31 @@ public class UserController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/password")
     public ResponseEntity<String> updateUser(@RequestBody MicroUser microUser){
+        MicroUser user = JwtUtil.extractUser(userService);
+        user.setPassword(microUser.getPassword());
         try{
             return ResponseEntity.ok().body(
                     new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
-                            userService.updateUser(microUser)
+                            userService.updateUser(user)
+                    )
+            );
+        } catch (Exception e){
+            log.error("Failed to update user.", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PutMapping("/about")
+    public ResponseEntity<String> updateProfile(@RequestBody MicroUser microUser){
+        MicroUser user = JwtUtil.extractUser(userService);
+        user.setAbout(microUser.getAbout());
+        user.setImageURL(microUser.getImageURL());
+        try{
+            return ResponseEntity.ok().body(
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(
+                            userService.updateProfile(user)
                     )
             );
         } catch (Exception e){
