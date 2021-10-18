@@ -73,7 +73,7 @@ public class UserService {
     }
 
     public List<MicroUser> searchUsersByName(String name){
-        String[] names = name.split("_");
+        String[] names = name.split(" ");
         if(names.length == 2){
             return userRepository.findByFirstNameContainingAndLastNameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
         } else {
