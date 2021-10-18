@@ -85,6 +85,7 @@ public class UserService {
     public List<MicroUser> getAllFollowers(MicroUser microUser) {
         return microUser.getFollower();
     }
+
     public List<MicroUser> searchUsersByUsername(String name){
         return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
@@ -92,6 +93,10 @@ public class UserService {
     public MicroUser updateUser(MicroUser microUser){
         microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
+    }
+
+    public MicroUser updateProfile(MicroUser user){
+        return userRepository.save(user);
     }
 
     public MicroUser followUser (MicroUser user, int id) {
