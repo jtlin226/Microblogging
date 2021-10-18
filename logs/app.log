@@ -2206,3 +2206,58 @@ org.springframework.security.authentication.BadCredentialsException: Bad credent
 2021-10-18 11:09:41.313  INFO 19424 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-10-18 11:09:41.315  INFO 19424 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-10-18 11:09:41.353  INFO 19424 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-18 11:34:17.691  INFO 18540 --- [main] com.revature.Micro.MicroApplication      : Starting MicroApplication using Java 1.8.0_301 on Donalds-Desktop with PID 18540 (D:\IntelliJ\IntelliJ IDEA Community Edition 2021.1.3\Micro\Micro\target\classes started by Julia in D:\IntelliJ\IntelliJ IDEA Community Edition 2021.1.3\Micro)
+2021-10-18 11:34:17.693  INFO 18540 --- [main] com.revature.Micro.MicroApplication      : No active profile set, falling back to default profiles: default
+2021-10-18 11:34:18.860  INFO 18540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-18 11:34:18.948  INFO 18540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 2 JPA repository interfaces.
+2021-10-18 11:34:19.750  INFO 18540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-18 11:34:19.761  INFO 18540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-18 11:34:19.761  INFO 18540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-18 11:34:19.878  INFO 18540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-18 11:34:19.879  INFO 18540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2093 ms
+2021-10-18 11:34:20.000  INFO 18540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-18 11:34:20.278  INFO 18540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-18 11:34:20.287  INFO 18540 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/microblog'
+2021-10-18 11:34:20.481  INFO 18540 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-18 11:34:20.533  INFO 18540 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-18 11:34:20.667  INFO 18540 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-18 11:34:20.774  INFO 18540 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-10-18 11:34:21.428  INFO 18540 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-18 11:34:21.438  INFO 18540 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-18 11:34:21.998  WARN 18540 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-18 11:34:22.720  INFO 18540 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-10-18 11:34:22.738  INFO 18540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d3bcd3, org.springframework.security.web.context.SecurityContextPersistenceFilter@58f290bc, org.springframework.security.web.header.HeaderWriterFilter@5950054d, org.springframework.web.filter.CorsFilter@5dce5c03, org.springframework.security.web.authentication.logout.LogoutFilter@e706aa, com.revature.Micro.filters.JwtRequestFilter@4d8056bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ae42248, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13ee97af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b76b7d8, org.springframework.security.web.session.SessionManagementFilter@50672905, org.springframework.security.web.access.ExceptionTranslationFilter@70c31b17, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@774013dc]
+2021-10-18 11:34:22.979  INFO 18540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-18 11:34:22.989  INFO 18540 --- [main] com.revature.Micro.MicroApplication      : Started MicroApplication in 5.816 seconds (JVM running for 6.344)
+2021-10-18 11:34:28.128  INFO 18540 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-18 11:34:28.129  INFO 18540 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-18 11:34:28.130  INFO 18540 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-18 11:34:28.232  INFO 18540 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:34:28.233  INFO 18540 --- [http-nio-8082-exec-2] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:34:28.293  INFO 18540 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:28.499  INFO 18540 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:28.812  INFO 18540 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:28.812  INFO 18540 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:38.255  INFO 18540 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:52.549  INFO 18540 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:52.549  INFO 18540 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:39.937  INFO 18540 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:51.921  INFO 18540 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:57.402  INFO 18540 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:37:00.446  INFO 18540 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:37:01.454  INFO 18540 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:37:01.456  INFO 18540 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:13:54.689  INFO 18540 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:13:57.724  INFO 18540 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:13:59.357  INFO 18540 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:11.767  INFO 18540 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 13:15:11.768  INFO 18540 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 13:15:11.768  INFO 18540 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:11.825  INFO 18540 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:11.839  INFO 18540 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:11.840  INFO 18540 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:19.493  INFO 18540 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 13:15:21.221  INFO 18540 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 14:56:35.710  INFO 18540 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-18 14:56:35.720  INFO 18540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-18 14:56:35.734  INFO 18540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
