@@ -63,7 +63,7 @@ public class JwtUtil {
     private String createTempToken(Map<String, Object> claims, String subject)
     {
         Date now = new Date(System.currentTimeMillis());
-        Date expire = new Date(System.currentTimeMillis() + 1000*60*2); // one hour from issue time
+        Date expire = new Date(System.currentTimeMillis() + 1000*60*2); // 2 minutes from issue time
         return Jwts.builder()
                 .setClaims(claims) // is empty now - can add stuff to it
                 .setSubject(subject) // the username
@@ -74,7 +74,7 @@ public class JwtUtil {
 
     private String createToken(Map<String, Object> claims, String subject) {
         Date now = new Date(System.currentTimeMillis());
-        Date expire = new Date(System.currentTimeMillis() + 1000*60*60*3); // one hour from issue time
+        Date expire = new Date(System.currentTimeMillis() + 1000*60*60*3); // 3 hour from issue time
         return Jwts.builder()
                 .setClaims(claims) // is empty now - can add stuff to it
                 .setSubject(subject) // the username
