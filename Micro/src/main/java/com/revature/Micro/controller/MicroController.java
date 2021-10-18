@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@CrossOrigin
+@RestController
 @RequestMapping("/micro")
 public class MicroController {
 
@@ -37,8 +38,7 @@ public class MicroController {
     }
 
     @GetMapping()
-    public @ResponseBody
-    List<Micro> getAllMicrosByUserAndFollowing() {
+    public List<Micro> getAllMicrosByUserAndFollowing() {
         MicroUser user = JwtUtil.extractUser(userService);
         return microService.getAllMicros(user);
     }

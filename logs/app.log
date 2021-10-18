@@ -1,107 +1,521 @@
-2021-10-14 09:57:23.870  INFO 14292 --- [main] com.revature.Micro.MicroApplication      : Starting MicroApplication using Java 1.8.0_301 on LAPTOP-349JV8PI with PID 14292 (C:\Users\jtlin\Desktop\Microblogging\Micro\target\classes started by jtlin in C:\Users\jtlin\Desktop\Microblogging)
-2021-10-14 09:57:23.889  INFO 14292 --- [main] com.revature.Micro.MicroApplication      : No active profile set, falling back to default profiles: default
-2021-10-14 09:57:25.896  INFO 14292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-10-14 09:57:26.035  INFO 14292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 2 JPA repository interfaces.
-2021-10-14 09:57:27.441  INFO 14292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-2021-10-14 09:57:27.474  INFO 14292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-10-14 09:57:27.474  INFO 14292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
-2021-10-14 09:57:27.672  INFO 14292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-10-14 09:57:27.674  INFO 14292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3638 ms
-2021-10-14 09:57:27.879  INFO 14292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-10-14 09:57:28.473  INFO 14292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-10-14 09:57:28.483  INFO 14292 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/microblog'
-2021-10-14 09:57:28.873  INFO 14292 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-10-14 09:57:28.996  INFO 14292 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-10-14 09:57:29.256  INFO 14292 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-10-14 09:57:29.463  INFO 14292 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-10-14 09:57:30.596  INFO 14292 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-10-14 09:57:30.612  INFO 14292 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-10-14 09:57:31.689  WARN 14292 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-10-14 09:57:33.208  INFO 14292 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2021-10-14 09:57:33.250  INFO 14292 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@774013dc, org.springframework.security.web.context.SecurityContextPersistenceFilter@6ebbc06, org.springframework.security.web.header.HeaderWriterFilter@8debe42, org.springframework.web.filter.CorsFilter@229cb4d8, org.springframework.security.web.authentication.logout.LogoutFilter@19a7906c, com.revature.Micro.filters.JwtRequestFilter@312a738d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@430d3021, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54941dfd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76e9eed8, org.springframework.security.web.session.SessionManagementFilter@4c2bea52, org.springframework.security.web.access.ExceptionTranslationFilter@2f73f0c7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@86377d5]
-2021-10-14 09:57:33.792  INFO 14292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-2021-10-14 09:57:33.813  INFO 14292 --- [main] com.revature.Micro.MicroApplication      : Started MicroApplication in 11.094 seconds (JVM running for 12.32)
-2021-10-14 09:58:06.343  INFO 14292 --- [http-nio-8082-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-10-14 09:58:06.344  INFO 14292 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-10-14 09:58:06.346  INFO 14292 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-10-14 09:59:06.606  INFO 14292 --- [http-nio-8082-exec-5] c.r.Micro.controller.UserController      : User attempting to login.
-2021-10-14 09:59:06.607  INFO 14292 --- [http-nio-8082-exec-5] com.revature.Micro.service.UserService   : verifying user
-2021-10-14 09:59:06.723  INFO 14292 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 09:59:07.221  INFO 14292 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 09:59:19.758  INFO 14292 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:01:10.440  INFO 14292 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:01:10.456  INFO 14292 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : Attempting to follow...
-2021-10-14 10:01:13.892  INFO 14292 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:12:57.456  INFO 17372 --- [main] com.revature.Micro.MicroApplication      : Starting MicroApplication using Java 1.8.0_301 on LAPTOP-349JV8PI with PID 17372 (C:\Users\jtlin\Desktop\Microblogging\Micro\target\classes started by jtlin in C:\Users\jtlin\Desktop\Microblogging)
-2021-10-14 10:12:57.461  INFO 17372 --- [main] com.revature.Micro.MicroApplication      : No active profile set, falling back to default profiles: default
-2021-10-14 10:12:59.176  INFO 17372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-10-14 10:12:59.324  INFO 17372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125 ms. Found 2 JPA repository interfaces.
-2021-10-14 10:13:00.526  INFO 17372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-2021-10-14 10:13:00.542  INFO 17372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-10-14 10:13:00.542  INFO 17372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
-2021-10-14 10:13:00.782  INFO 17372 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-10-14 10:13:00.783  INFO 17372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3243 ms
-2021-10-14 10:13:01.098  INFO 17372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-10-14 10:13:01.611  INFO 17372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-10-14 10:13:01.620  INFO 17372 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/microblog'
-2021-10-14 10:13:01.988  INFO 17372 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-10-14 10:13:02.104  INFO 17372 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-10-14 10:13:02.369  INFO 17372 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-10-14 10:13:02.573  INFO 17372 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-10-14 10:13:03.492  INFO 17372 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-10-14 10:13:03.505  INFO 17372 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-10-14 10:13:04.518  WARN 17372 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-10-14 10:13:05.919  INFO 17372 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2021-10-14 10:13:05.961  INFO 17372 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46188a89, org.springframework.security.web.context.SecurityContextPersistenceFilter@4fedf908, org.springframework.security.web.header.HeaderWriterFilter@78b9155e, org.springframework.web.filter.CorsFilter@6f65a203, org.springframework.security.web.authentication.logout.LogoutFilter@58f290bc, com.revature.Micro.filters.JwtRequestFilter@1c6ac73c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@241d1052, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@431babe6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d0b447b, org.springframework.security.web.session.SessionManagementFilter@75805562, org.springframework.security.web.access.ExceptionTranslationFilter@53525379, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@405603b6]
-2021-10-14 10:13:06.522  INFO 17372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-2021-10-14 10:13:06.544  INFO 17372 --- [main] com.revature.Micro.MicroApplication      : Started MicroApplication in 9.841 seconds (JVM running for 10.76)
-2021-10-14 10:14:47.755  INFO 17372 --- [http-nio-8082-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-10-14 10:14:47.757  INFO 17372 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-10-14 10:14:47.764  INFO 17372 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2021-10-14 10:15:00.591  INFO 17372 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : New user being created
-2021-10-14 10:15:17.214  INFO 17372 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
-2021-10-14 10:15:17.214  INFO 17372 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
-2021-10-14 10:15:17.339  INFO 17372 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:15:17.828  INFO 17372 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:15:30.631  INFO 17372 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:16:45.233  INFO 17204 --- [main] com.revature.Micro.MicroApplication      : Starting MicroApplication using Java 1.8.0_301 on LAPTOP-349JV8PI with PID 17204 (C:\Users\jtlin\Desktop\Microblogging\Micro\target\classes started by jtlin in C:\Users\jtlin\Desktop\Microblogging)
-2021-10-14 10:16:45.237  INFO 17204 --- [main] com.revature.Micro.MicroApplication      : No active profile set, falling back to default profiles: default
-2021-10-14 10:16:47.064  INFO 17204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-10-14 10:16:47.217  INFO 17204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 2 JPA repository interfaces.
-2021-10-14 10:16:48.455  INFO 17204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-2021-10-14 10:16:48.475  INFO 17204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-10-14 10:16:48.475  INFO 17204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
-2021-10-14 10:16:48.707  INFO 17204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-10-14 10:16:48.709  INFO 17204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3368 ms
-2021-10-14 10:16:48.964  INFO 17204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-10-14 10:16:49.452  INFO 17204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-10-14 10:16:49.469  INFO 17204 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/microblog'
-2021-10-14 10:16:50.160  INFO 17204 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-10-14 10:16:50.290  INFO 17204 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-10-14 10:16:50.652  INFO 17204 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-10-14 10:16:50.843  INFO 17204 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-10-14 10:16:51.991  INFO 17204 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-10-14 10:16:52.008  INFO 17204 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-10-14 10:16:53.046  WARN 17204 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-10-14 10:16:54.660  INFO 17204 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2021-10-14 10:16:54.702  INFO 17204 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f5a33ed, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ad0c70a, org.springframework.security.web.header.HeaderWriterFilter@4a453f8d, org.springframework.web.filter.CorsFilter@5b59c3d, org.springframework.security.web.authentication.logout.LogoutFilter@11015ca0, com.revature.Micro.filters.JwtRequestFilter@6463da36, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75805562, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3006bfb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69e36fe3, org.springframework.security.web.session.SessionManagementFilter@59e0d521, org.springframework.security.web.access.ExceptionTranslationFilter@3460e4ed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@54a6ef6]
-2021-10-14 10:16:55.317  INFO 17204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-2021-10-14 10:16:55.343  INFO 17204 --- [main] com.revature.Micro.MicroApplication      : Started MicroApplication in 10.915 seconds (JVM running for 11.779)
-2021-10-14 10:17:07.260  INFO 17204 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-10-14 10:17:07.261  INFO 17204 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-10-14 10:17:07.263  INFO 17204 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-10-14 10:17:07.474  INFO 17204 --- [http-nio-8082-exec-1] c.r.Micro.controller.UserController      : New user being created
-2021-10-14 10:17:11.858  INFO 17204 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
-2021-10-14 10:17:11.859  INFO 17204 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
-2021-10-14 10:17:11.967  INFO 17204 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:17:12.484  INFO 17204 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:17:50.850  INFO 17204 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:01.724  INFO 17204 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:17.429  INFO 17204 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : New user being created
-2021-10-14 10:18:24.958  INFO 17204 --- [http-nio-8082-exec-1] c.r.Micro.controller.UserController      : User attempting to login.
-2021-10-14 10:18:24.960  INFO 17204 --- [http-nio-8082-exec-1] com.revature.Micro.service.UserService   : verifying user
-2021-10-14 10:18:24.960  INFO 17204 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:25.076  INFO 17204 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:38.989  INFO 17204 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:54.242  INFO 17204 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
-2021-10-14 10:18:54.251  INFO 17204 --- [http-nio-8082-exec-5] c.r.Micro.controller.UserController      : Attempting to follow...
+2021-10-18 09:17:38.733  INFO 12972 --- [main] com.revature.Micro.MicroApplication      : Starting MicroApplication using Java 1.8.0_301 on LAPTOP-349JV8PI with PID 12972 (C:\Users\jtlin\Desktop\Microblogging\Micro\target\classes started by jtlin in C:\Users\jtlin\Desktop\Microblogging)
+2021-10-18 09:17:38.774  INFO 12972 --- [main] com.revature.Micro.MicroApplication      : No active profile set, falling back to default profiles: default
+2021-10-18 09:17:41.063  INFO 12972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-18 09:17:41.390  INFO 12972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185 ms. Found 2 JPA repository interfaces.
+2021-10-18 09:17:43.815  INFO 12972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-18 09:17:43.837  INFO 12972 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-18 09:17:43.837  INFO 12972 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-18 09:17:44.228  INFO 12972 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-18 09:17:44.228  INFO 12972 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5287 ms
+2021-10-18 09:17:44.538  INFO 12972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-18 09:17:45.227  INFO 12972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-18 09:17:45.248  INFO 12972 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/microblog'
+2021-10-18 09:17:46.237  INFO 12972 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-18 09:17:46.497  INFO 12972 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-18 09:17:46.937  INFO 12972 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-18 09:17:47.289  INFO 12972 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-10-18 09:17:48.503  INFO 12972 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-18 09:17:48.518  INFO 12972 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-18 09:17:49.548  WARN 12972 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-18 09:17:51.131  INFO 12972 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-10-18 09:17:51.180  INFO 12972 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@eebc0db, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cead673, org.springframework.security.web.header.HeaderWriterFilter@40c28b0d, org.springframework.web.filter.CorsFilter@1214c98b, org.springframework.security.web.authentication.logout.LogoutFilter@52d63b7e, com.revature.Micro.filters.JwtRequestFilter@32d0d7eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10a0a1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36665c11, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ab50d1c, org.springframework.security.web.session.SessionManagementFilter@341ccfd1, org.springframework.security.web.access.ExceptionTranslationFilter@3220c28, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29bd2796]
+2021-10-18 09:17:51.715  INFO 12972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-18 09:17:51.736  INFO 12972 --- [main] com.revature.Micro.MicroApplication      : Started MicroApplication in 14.849 seconds (JVM running for 16.481)
+2021-10-18 09:18:18.686  INFO 12972 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-18 09:18:18.687  INFO 12972 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-18 09:18:18.688  INFO 12972 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-18 09:18:18.871  INFO 12972 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:18:18.872  INFO 12972 --- [http-nio-8082-exec-2] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:18:18.986  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:18:19.390  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:18:19.898  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:18:20.067 ERROR 12972 --- [http-nio-8082-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.revature.Micro.util.JwtUtil.extractAllClaims(JwtUtil.java:45) ~[classes/:na]
+	at com.revature.Micro.util.JwtUtil.extractClaim(JwtUtil.java:40) ~[classes/:na]
+	at com.revature.Micro.util.JwtUtil.extractUsername(JwtUtil.java:32) ~[classes/:na]
+	at com.revature.Micro.filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:47) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.5.jar:2.5.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_301]
+
+2021-10-18 09:19:14.193  INFO 12972 --- [http-nio-8082-exec-10] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:19:14.193  INFO 12972 --- [http-nio-8082-exec-10] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:19:14.193  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:19:14.284  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:19:14.317  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:04.633  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:21:04.634  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:21:04.634  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:04.727  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:04.757  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:29.938  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:21:29.939  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:21:29.939  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:30.035  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:30.072  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:50.029  INFO 12972 --- [http-nio-8082-exec-9] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:21:50.030  INFO 12972 --- [http-nio-8082-exec-9] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:21:50.030  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:50.118  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:21:50.159  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:22:13.948  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:22:13.948  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:22:13.948  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:22:14.040  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:22:14.071  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:23:55.179  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:23:55.180  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:23:55.180  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:23:55.271  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:23:55.302  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:06.557  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:50:06.558  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:50:06.558  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:06.664  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:06.697  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:06.698  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:34.906  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:50:34.907  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:50:34.907  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:35.002  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:35.035  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:50:35.035  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:53:30.639  INFO 12972 --- [http-nio-8082-exec-10] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:53:30.640  INFO 12972 --- [http-nio-8082-exec-10] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:53:30.640  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:53:30.737  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:53:30.773  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:53:30.774  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:56:04.228  INFO 12972 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:56:04.229  INFO 12972 --- [http-nio-8082-exec-2] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:56:04.230  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:56:04.326  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:56:04.361  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:56:04.363  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:02.484  INFO 12972 --- [http-nio-8082-exec-5] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:57:02.484  INFO 12972 --- [http-nio-8082-exec-5] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:57:02.485  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:02.588  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:02.617  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:02.617  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:06.121  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:06.122  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:06.909  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:08.023  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:08.024  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:10.542  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:10.543  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:55.717  INFO 12972 --- [http-nio-8082-exec-8] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:57:55.717  INFO 12972 --- [http-nio-8082-exec-8] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:57:55.717  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:55.809  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:55.842  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:57:55.842  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:58:50.399  INFO 12972 --- [http-nio-8082-exec-6] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 09:58:50.399  INFO 12972 --- [http-nio-8082-exec-6] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 09:58:50.399  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:58:50.505  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:58:50.567  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 09:58:50.567  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:07.001  INFO 12972 --- [http-nio-8082-exec-8] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:00:07.002  INFO 12972 --- [http-nio-8082-exec-8] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:00:07.002  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:07.109  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:20.137  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:27.536  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:50.467  INFO 12972 --- [http-nio-8082-exec-5] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:00:50.468  INFO 12972 --- [http-nio-8082-exec-5] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:00:50.468  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:50.566  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:50.603  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:00:50.603  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:03:20.344  INFO 12972 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:03:20.344  INFO 12972 --- [http-nio-8082-exec-2] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:03:20.344  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:03:20.440  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:03:20.478  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:03:20.480  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:04:03.151  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:04:03.152  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:04:03.152  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:04:03.252  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:04:03.283  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:04:03.283  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:09:23.159  INFO 12972 --- [http-nio-8082-exec-6] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:09:23.159  INFO 12972 --- [http-nio-8082-exec-6] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:09:23.159  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:09:23.268  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:09:23.308  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:09:23.309  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:17.577  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:12:17.577  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:12:17.578  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:17.677  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:17.743  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:17.743  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:21.162  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:12:21.184  WARN 12972 --- [http-nio-8082-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `int` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `int` from Object value (token `JsonToken.START_OBJECT`)
+ at [Source: (PushbackInputStream); line: 1, column: 36] (through reference chain: com.revature.Micro.dto.MicroDTO["user"])]
+2021-10-18 10:13:26.249  INFO 12972 --- [http-nio-8082-exec-9] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:13:26.249  INFO 12972 --- [http-nio-8082-exec-9] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:13:26.250  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:13:26.360  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:13:26.393  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:13:26.398  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:13:31.082  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:13:31.091  WARN 12972 --- [http-nio-8082-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `int` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `int` from Object value (token `JsonToken.START_OBJECT`)
+ at [Source: (PushbackInputStream); line: 1, column: 33] (through reference chain: com.revature.Micro.dto.MicroDTO["user"])]
+2021-10-18 10:14:55.529  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:14:55.529  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:14:55.529  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:14:55.673  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:14:55.709  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:14:55.709  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:14:59.531  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:33:27.290  INFO 12972 --- [http-nio-8082-exec-2] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:33:27.291  INFO 12972 --- [http-nio-8082-exec-2] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:33:27.291  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:33:27.402  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:33:27.464  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:33:27.464  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:33:33.727  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:40.585  INFO 12972 --- [http-nio-8082-exec-8] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:34:40.586  INFO 12972 --- [http-nio-8082-exec-8] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:34:40.586  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:40.699  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:40.746  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:40.748  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:44.180  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:44.191  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:34:44.197  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:29.477  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:36:29.478  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:36:29.478  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:29.592  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:29.629  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:29.628  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:32.955  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:32.985  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:36:32.988  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:38:32.372  INFO 12972 --- [http-nio-8082-exec-5] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:38:32.373  INFO 12972 --- [http-nio-8082-exec-5] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:38:32.373  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:38:32.486 ERROR 12972 --- [http-nio-8082-exec-5] com.revature.Micro.service.UserService   : Credentials not recognized during authentication
+
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:79) ~[spring-security-core-5.5.2.jar:5.5.2]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:147) ~[spring-security-core-5.5.2.jar:5.5.2]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-5.5.2.jar:5.5.2]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201) ~[spring-security-core-5.5.2.jar:5.5.2]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator.authenticate(WebSecurityConfigurerAdapter.java:510) ~[spring-security-config-5.5.2.jar:5.5.2]
+	at com.revature.Micro.service.UserService.authenticate(UserService.java:49) ~[classes/:na]
+	at com.revature.Micro.controller.UserController.createAuthenticateToken(UserController.java:41) [classes/:na]
+	at sun.reflect.GeneratedMethodAccessor93.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_301]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_301]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at com.revature.Micro.filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:66) [classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) [spring-boot-actuator-2.5.5.jar:2.5.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_301]
+
+2021-10-18 10:38:45.798  INFO 12972 --- [http-nio-8082-exec-10] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:38:45.798  INFO 12972 --- [http-nio-8082-exec-10] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:38:45.800  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:38:45.903  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:38:45.939  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:38:45.939  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:35.874  INFO 12972 --- [http-nio-8082-exec-10] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:40:35.876  INFO 12972 --- [http-nio-8082-exec-10] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:40:35.876  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:35.977  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:36.016  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:36.016  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:43.803  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:43.832  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:43.834  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:57.379  INFO 12972 --- [http-nio-8082-exec-6] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:40:57.379  INFO 12972 --- [http-nio-8082-exec-6] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:40:57.380  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:57.486  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:57.521  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:40:57.526  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:01.471  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:01.501  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:01.501  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:03.284  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:03.296  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:03.297  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:05.473  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:05.495  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:05.496  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:26.629  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:41:26.629  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:41:26.630  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:26.732  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:26.767  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:41:26.767  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:09.785  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:42:09.785  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:42:09.786  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:09.885  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:09.922  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:09.922  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:44.658  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:42:44.659  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:42:44.662  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:44.761  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:44.798  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:42:44.803  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:00.948  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:44:00.948  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:44:00.948  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:01.053  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:01.099  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:01.099  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:45.417  INFO 12972 --- [http-nio-8082-exec-9] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:44:45.418  INFO 12972 --- [http-nio-8082-exec-9] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:44:45.418  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:45.516  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:45.549  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:45.549  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:47.978  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:47.992  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:44:47.997  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:46:33.564  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:46:33.565  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:46:33.565  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:46:33.665  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:46:33.700  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:46:33.702  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:50:29.174  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:50:29.174  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:50:29.174  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:50:29.278  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:50:29.313  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:50:29.316  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:51:19.864  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:51:19.865  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:51:19.865  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:51:19.961  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:51:19.995  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:51:19.995  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:52:03.377  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 10:52:03.378  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 10:52:03.378  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:52:03.480  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:52:03.516  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 10:52:03.516  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:01:17.891  INFO 12972 --- [http-nio-8082-exec-4] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:01:17.892  INFO 12972 --- [http-nio-8082-exec-4] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:01:17.892  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:01:17.995  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:01:18.028  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:01:18.028  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:02:58.859  INFO 12972 --- [http-nio-8082-exec-1] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:02:58.860  INFO 12972 --- [http-nio-8082-exec-1] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:02:58.860  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:02:58.964  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:02:59.008  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:02:59.015  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:06:56.671  INFO 12972 --- [http-nio-8082-exec-10] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:06:56.672  INFO 12972 --- [http-nio-8082-exec-10] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:06:56.672  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:06:56.781  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:06:56.821  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:06:56.822  INFO 12972 --- [http-nio-8082-exec-4] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:07:05.755  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:07:05.818  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:07:05.823  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:01.913  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:12:01.913  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:12:01.913  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:02.019  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:02.054  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:02.055  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:10.919  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:12.001  INFO 12972 --- [http-nio-8082-exec-9] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:12:12.001  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:27:55.386  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:27:55.386  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:27:55.386  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:27:55.498  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:27:55.547  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:27:55.548  INFO 12972 --- [http-nio-8082-exec-5] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:01.418  INFO 12972 --- [http-nio-8082-exec-6] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:34:01.419  INFO 12972 --- [http-nio-8082-exec-6] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:34:01.419  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:01.525  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:01.589  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:01.587  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:41.872  INFO 12972 --- [http-nio-8082-exec-6] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:34:41.873  INFO 12972 --- [http-nio-8082-exec-6] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:34:41.873  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:41.978  INFO 12972 --- [http-nio-8082-exec-6] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:42.024  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:34:42.039  INFO 12972 --- [http-nio-8082-exec-1] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:35:51.557  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:35:51.557  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:35:51.558  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:35:51.669  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:35:51.729  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:35:51.732  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:06.809  INFO 12972 --- [http-nio-8082-exec-7] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:36:06.810  INFO 12972 --- [http-nio-8082-exec-7] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:36:06.810  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:06.914  INFO 12972 --- [http-nio-8082-exec-7] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:06.961  INFO 12972 --- [http-nio-8082-exec-10] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:06.963  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:57.444  INFO 12972 --- [http-nio-8082-exec-3] c.r.Micro.controller.UserController      : User attempting to login.
+2021-10-18 11:36:57.444  INFO 12972 --- [http-nio-8082-exec-3] com.revature.Micro.service.UserService   : verifying user
+2021-10-18 11:36:57.444  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:57.552  INFO 12972 --- [http-nio-8082-exec-3] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:57.600  INFO 12972 --- [http-nio-8082-exec-8] c.r.M.service.MicroUserDetailsService    : Load user information
+2021-10-18 11:36:57.616  INFO 12972 --- [http-nio-8082-exec-2] c.r.M.service.MicroUserDetailsService    : Load user information
