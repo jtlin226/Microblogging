@@ -9,18 +9,14 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface MicroRepository extends JpaRepository<Micro, Integer> {
-//
-//    @Query("select m from Micro m where m.user = :user")
-//    List<Micro> getMicrosByUser (@Param("user") MicroUser user);
-
     List<Micro> findByUser(MicroUser user);
 
-    //TODO: Write correct query
+    /**
+     * Get all micros of user with "id" and other users
+     * that followed
+     * @param id the user id of the user to search for
+     * @return a list of micro objects
+     */
     @Query(value = "SELECT * FROM MICROS WHERE USER_ID = ?1 OR USER_ID IN (SELECT FOLLOWING_ID FROM FOLLOWED_BY WHERE FOLLOWED_BY.FOLLOWER_ID = ?1)", nativeQuery = true)
     List<Micro> getAllMicrosFromUserAndFollowingByUser (int id);
-    /**
-     SELECT * FROM MICROS
-     WHERE USER_ID = 2 OR USER_ID IN(
-     SELECT FOLLOWING_ID FROM FOLLOWED_BY WHERE FOLLOWED_BY.FOLLOWER_ID = 2)
-     */
 }
