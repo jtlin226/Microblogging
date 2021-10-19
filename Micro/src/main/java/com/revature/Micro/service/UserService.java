@@ -38,11 +38,21 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * save a new user to the db
+     * @param microUser
+     * @return
+     */
     public MicroUser saveNewUser(MicroUser microUser) {
         microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
     }
 
+    /**
+     * authenticate that the given username and password are in db
+     * @param authReq
+     * @return jwt for access to other controller endpoints
+     */
     public ResponseEntity<?> authenticate(AuthenticationRequest authReq){
         log.info("verifying user");
         try{
@@ -59,6 +69,11 @@ public class UserService {
         }
     }
 
+    /**
+     * used to get a specific user given the user's username. This is used for when user forgets password
+     * @param username
+     * @return jwt needed to change password. Lasts for 2 min
+     */
     public ResponseEntity<AuthenticationResponse> getSpecificUser(String username){
         final UserDetails userDetails = microUserDetailsService.loadUserByUsername(username);
         final String jwt = jwtTokenUtil.generateTempToken(userDetails);
@@ -66,6 +81,11 @@ public class UserService {
         return ResponseEntity.ok(authResp);
     }
 
+    /**
+     * get a specific user by username.
+     * @param username
+     * @return user object
+     */
     public MicroUser getUserByUsername(String username) {
         try {
             return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
@@ -75,6 +95,11 @@ public class UserService {
         }
     }
 
+    /**
+     * get a list of users where their name contains the given name
+     * @param name
+     * @return
+     */
     public List<MicroUser> searchUsersByName(String name){
         String[] names = name.split(" ");
         if(names.length == 2){
@@ -85,27 +110,60 @@ public class UserService {
 
     }
 
+    /**
+     * get a list of users that follow a given user
+     * @param microUser
+     * @return
+     */
     public List<MicroUser> getAllFollowers(MicroUser microUser) {
         return microUser.getFollower();
     }
 
+    /**
+     * get a list of users where their username contains the given name
+     * @param name
+     * @return
+     */
     public List<MicroUser> searchUsersByUsername(String name){
         return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
 
+    /**
+     * used to update a user's password after it is changed.
+     * @param microUser
+     * @return
+     */
     public MicroUser updateUser(MicroUser microUser){
         microUser.setPassword(passwordEncoder.encode(microUser.getPassword()));
         return userRepository.save(microUser);
     }
 
+    /**
+     * used to update a user's profile after the about me and image URL are changed
+     * @param user
+     * @return
+     */
     public MicroUser updateProfile(MicroUser user){
         return userRepository.save(user);
     }
 
+    /**
+     * used to update a user's follower list by adding a new user to it
+     * @param user
+     * @param id
+     * @return
+     */
     public MicroUser followUser (MicroUser user, int id) {
         user.getFollowing().add(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
+
+    /**
+     * used to update a user's follower list by removing a user from it
+     * @param user
+     * @param id
+     * @return
+     */
     public MicroUser unfollowUser (MicroUser user, int id) {
         user.getFollowing().remove(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);

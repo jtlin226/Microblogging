@@ -29,18 +29,32 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * registering a new user. Calls saveNewUser method in UserService
+     * @param microUser user object that is to be persisted
+     * @return the user that was persisted
+     */
     @PostMapping("/register")
     public MicroUser createUser(@RequestBody MicroUser microUser){
         log.info("New user being created");
         return userService.saveNewUser(microUser);
     }
 
+    /**
+     * authenticating a user when they log in. Calls authenticate method in UserService
+     * @param authReq object with username and password needed to authenticate
+     * @return the jwt generated after authentication
+     */
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authReq){
         log.info("User attempting to login.");
         return userService.authenticate(authReq);
     }
 
+    /**
+     * get user based off the incoming jwt
+     * @return
+     */
     @GetMapping
     public ResponseEntity<String> getCurrentUser(){
         try{
@@ -55,13 +69,18 @@ public class UserController {
         }
     }
 
+    /**
+     * get user object given a username, used for when user forgot password
+     * @param username string of username
+     * @return
+     */
     @GetMapping("/recover/{username}")
     public ResponseEntity<?> getSpecificUser(@PathVariable String username){
         return userService.getSpecificUser(username);
     }
 
     /**
-     *
+     * get all users where name contains the given name
      * @param name The name of the person that is being searched. Format: firstName  or   firstName_lastName
      * @return
      */
@@ -88,6 +107,10 @@ public class UserController {
         }
     }
 
+    /**
+     * get all users that follow current user
+     * @return
+     */
     @GetMapping("/follower")
     public ResponseEntity<String> getMyFollowers() {
         MicroUser microUser = JwtUtil.extractUser(userService);
@@ -102,6 +125,11 @@ public class UserController {
         }
     }
 
+    /**
+     * get all users where username contains given username string
+     * @param username string of username
+     * @return
+     */
     @GetMapping("/{username}")
     public ResponseEntity<String> searchPeopleByUsername(@PathVariable String username){
         try{
@@ -125,6 +153,10 @@ public class UserController {
         }
     }
 
+    /**
+     * get all users that current user is following
+     * @return
+     */
     @GetMapping("/following")
     public ResponseEntity<String> getFollowing(){
         try{
@@ -139,6 +171,11 @@ public class UserController {
         }
     }
 
+    /**
+     * update user object with new password
+     * @param microUser user object that contains the information that needs to be persisted to the current user
+     * @return
+     */
     @PutMapping("/password")
     public ResponseEntity<String> updateUser(@RequestBody MicroUser microUser){
         MicroUser user = JwtUtil.extractUser(userService);
@@ -155,6 +192,11 @@ public class UserController {
         }
     }
 
+    /**
+     * update user with new about me and image URL
+     * @param microUser user object that contains the information that needs to be persisted to the current user
+     * @return
+     */
     @PutMapping("/about")
     public ResponseEntity<String> updateProfile(@RequestBody MicroUser microUser){
         MicroUser user = JwtUtil.extractUser(userService);
@@ -172,6 +214,11 @@ public class UserController {
         }
     }
 
+    /**
+     * update the current user's following list to include user with given user id
+     * @param follow_id user id for the user that will be followed by current user
+     * @return
+     */
     @PutMapping("/follow/{follow_id}")
     public ResponseEntity<String> followUser(@PathVariable int follow_id) {
         MicroUser user = JwtUtil.extractUser(userService);
@@ -189,6 +236,12 @@ public class UserController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    /**
+     * update the current user's following list to remove user with given user id
+     * @param follow_id user id for the user that was being followed by current user
+     * @return
+     */
     @PutMapping("/unfollow/{follow_id}")
     public ResponseEntity<String> unfollowUser(@PathVariable int follow_id) {
         MicroUser user = JwtUtil.extractUser(userService);
