@@ -59,8 +59,11 @@ public class UserService {
         }
     }
 
-    public MicroUser getSpecificUser(String username){
-        return userRepository.findByUsername(username).orElseThrow(RuntimeException::new);
+    public ResponseEntity<AuthenticationResponse> getSpecificUser(String username){
+        final UserDetails userDetails = microUserDetailsService.loadUserByUsername(username);
+        final String jwt = jwtTokenUtil.generateTempToken(userDetails);
+        AuthenticationResponse authResp = new AuthenticationResponse(jwt);
+        return ResponseEntity.ok(authResp);
     }
 
     public MicroUser getUserByUsername(String username) {
@@ -73,7 +76,7 @@ public class UserService {
     }
 
     public List<MicroUser> searchUsersByName(String name){
-        String[] names = name.split("_");
+        String[] names = name.split(" ");
         if(names.length == 2){
             return userRepository.findByFirstNameContainingAndLastNameContaining(names[0], names[1]).orElseThrow(RuntimeException::new);
         } else {
@@ -85,6 +88,7 @@ public class UserService {
     public List<MicroUser> getAllFollowers(MicroUser microUser) {
         return microUser.getFollower();
     }
+
     public List<MicroUser> searchUsersByUsername(String name){
         return userRepository.findByUsernameContaining(name).orElseThrow(RuntimeException::new);
     }
@@ -94,12 +98,16 @@ public class UserService {
         return userRepository.save(microUser);
     }
 
+    public MicroUser updateProfile(MicroUser user){
+        return userRepository.save(user);
+    }
+
     public MicroUser followUser (MicroUser user, int id) {
         user.getFollowing().add(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
     public MicroUser unfollowUser (MicroUser user, int id) {
-        user.getFollowing().remove(userRepository.getById(id));
+        user.getFollowing().remove(userRepository.findById(id).orElseThrow(RuntimeException::new));
         return userRepository.save(user);
     }
 }
