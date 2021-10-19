@@ -23,7 +23,7 @@ public class Micro {
     /**
      * The content of the micro post
      */
-    @Column(name = "content", columnDefinition = "TEXT")
+    @Column(name = "content")
     private String content;
 
     /**
